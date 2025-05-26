@@ -1,0 +1,6 @@
+
+在 dotenv.config() 之前:
+環境變數 OUTPUT_FOLDER: undefined
+
+dotenv 載入結果: {"parsed":{},"error":{"errno":-2,"code":"ENOENT","syscall":"open","path":"/Users/lee.hongwei/Unity/Class_20250319/.env"}}
+dotenv.config() 後的環境變數 OUTPUT_FOLDER: undefined
