@@ -40,7 +40,15 @@ public class Game : MonoBehaviour    // 遊戲主要邏輯控制類別
         // 如果 Btn.cs 中的 GameDone 已經設定了 global.correct = 1，這裡的計算可以作為驗證
         // 或者，如果希望 Game.cs 自身也能獨立判斷完成狀態，則保留此邏輯
         // 為了簡化，暫時假設 global.correct 由外部（如Btn.cs或點擊邏輯）正確設定
-        global.correct = currentCorrect; // 恢復此行，讓 Game.cs 自行判斷
+        if (global.correct != currentCorrect) // 只有在狀態改變時才更新
+        {
+            global.correct = currentCorrect;
+            if (global.correct == 1)
+            {
+                global.lastMoveCount = global.count; // 記錄本局移動次數
+                Debug.Log("[Game.cs] Game Solved! Moves: " + global.count + ". global.lastMoveCount set to: " + global.lastMoveCount);
+            }
+        }
 
         UpdateVisualState();
     }

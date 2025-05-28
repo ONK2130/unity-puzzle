@@ -43,12 +43,17 @@ public class Game_M : MonoBehaviour    // 類名更改
 
         if (Game_M.correct != currentCorrectCheck)
         {
-            Game_M.correct = currentCorrectCheck;
-            global.correct = currentCorrectCheck; // 同步設定 global.correct
-            if (Game_M.correct == 1)
+            // 只有在狀態改變時才更新
+            if (Game_M.correct != currentCorrectCheck || global.correct != currentCorrectCheck)
             {
-                Debug.Log($"[Game_M.cs] Game Solved! Final state: " + string.Join(", ", Game_M.po) + "; global.correct set to " + global.correct);
-                // CompletionManager 的 Update() 方法會自動檢測 global.correct 並顯示面板
+                Game_M.correct = currentCorrectCheck;
+                global.correct = currentCorrectCheck; // 同步設定 global.correct
+                if (Game_M.correct == 1)
+                {
+                    global.lastMoveCount = Game_M.count; // 記錄本局移動次數
+                    Debug.Log($"[Game_M.cs] Game Solved! Moves: {Game_M.count}. Final state: " + string.Join(", ", Game_M.po) + "; global.correct set to " + global.correct + "; global.lastMoveCount set to " + global.lastMoveCount);
+                    // CompletionManager 的 Update() 方法會自動檢測 global.correct 並顯示面板
+                }
             }
         }
 

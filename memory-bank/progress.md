@@ -212,3 +212,4 @@ This file tracks the project's progress using a task list format.
     *   (Modify existing scripts to support new features.)
     *   創建新腳本以管理新邏輯。
     *   (Create new scripts to manage new logic.)
+[2025-05-28 19:41:00] - 完成修復：解決了從 Scoring 場景返回遊戲時，CompletionManager 的通關面板會殘留顯示的問題。在 Btn.cs 和 Btn_M.cs 中添加了 Start() 方法，當檢測到 global.correct == 1 時自動調用 GameOpen() 來重新初始化遊戲。

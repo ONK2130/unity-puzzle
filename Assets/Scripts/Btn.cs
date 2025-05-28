@@ -17,25 +17,60 @@ public class Btn : MonoBehaviour
     //     // ...
     // }
 
+    // REMOVED: Start() 方法，避免自動調用 GameOpen() 造成問題
+    // void Start()
+    // {
+    //     // ...
+    // }
+
     public void GameOpen()    // 開始遊戲的方法
     {
         // 嘗試找到 CompletionManager 並隱藏其面板
         CompletionManager cm = FindObjectOfType<CompletionManager>();
         if (cm != null)
         {
+            Debug.Log($"Btn.cs GameOpen: Calling HideCompletionPanel. Frame: {Time.frameCount}");
             cm.HideCompletionPanel();
         }
         else
         {
-            Debug.LogWarning("Btn.cs (GameOpen): CompletionManager not found in scene. Cannot hide completion panel.");
+            Debug.LogWarning($"Btn.cs GameOpen: CompletionManager not found in scene. Cannot hide completion panel. Frame: {Time.frameCount}");
         }
 
-        wp.SetActive(true);    // 顯示遊戲視窗
+        // 添加空值檢查
+        if (wp != null)
+        {
+            wp.SetActive(true);    // 顯示遊戲視窗
+        }
+        else
+        {
+            Debug.LogError("Btn.cs GameOpen: wp (game window) is not assigned! Please assign it in the Inspector.");
+            return; // 如果 wp 未指派，無法繼續
+        }
 
         // 恢復為僅處理 Easy 模式 (3x3) 的邏輯
         global.correct = 0;
+        Debug.Log($"Btn.cs GameOpen: global.correct set to 0. Frame: {Time.frameCount}");
         global.count = 0;
-        txt_count.GetComponent<Text>().text = "0";
+        global.lastMoveCount = 0; // 重置上一局的移動次數
+
+        // 添加空值檢查以避免 UnassignedReferenceException
+        if (txt_count != null)
+        {
+            Text textComponent = txt_count.GetComponent<Text>();
+            if (textComponent != null)
+            {
+                textComponent.text = "0";
+            }
+            else
+            {
+                Debug.LogWarning("Btn.cs GameOpen: txt_count does not have a Text component!");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Btn.cs GameOpen: txt_count is not assigned! Please assign it in the Inspector.");
+        }
 
         // Easy 模式 (3x3, 9塊) 的初始化邏輯 - 使用 Fisher-Yates shuffle
         List<int> numbersToShuffle = new List<int>();
@@ -78,6 +113,7 @@ public class Btn : MonoBehaviour
             global.po[i] = i + 1; // po[8] 會是 9 (空格)
         }
         global.correct = 1;
+        global.lastMoveCount = global.count; // 記錄本局移動次數
         // UI 更新由 Game.cs 處理
     }
 

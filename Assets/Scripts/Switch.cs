@@ -43,6 +43,7 @@ public class Switch : MonoBehaviour
         // Easy 模式不需要特別的全域設定，其狀態由 Game.cs 和 Btn.cs 內部處理
         PlayerPrefs.SetString("SelectedDifficulty", "Easy");
         PlayerPrefs.Save();
+        global.lastDifficulty = "簡單"; // 設定全域難度記錄
         SceneManager.LoadScene("Puzzl-Easy");
     }
 
@@ -51,6 +52,7 @@ public class Switch : MonoBehaviour
         // 當載入 Puzzl-Medium 場景後，該場景內的 Btn_Medium.GameOpen() 應被調用以初始化 Game_Medium 的狀態
         PlayerPrefs.SetString("SelectedDifficulty", "Medium");
         PlayerPrefs.Save();
+        global.lastDifficulty = "中等"; // 設定全域難度記錄
         SceneManager.LoadScene("Puzzl-Medium");
     }
 
@@ -67,6 +69,13 @@ public class Switch : MonoBehaviour
     {
         SceneManager.LoadScene("Player-input");
     }
+
+    public void GameScoring()
+    {
+        SceneManager.LoadScene("Scoring");
+    }
+
+
 
     // 您可以在此處添加一個靜態方法，用於在遊戲的其他地方讀取已儲存的姓名
     // 例如：public static string GetSavedPlayerName()

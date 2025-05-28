@@ -9,34 +9,56 @@ public class Btn_M : MonoBehaviour // 類名更改
     public GameObject wp;    // 遊戲視窗物件 (Puzzl-Medium場景中的父物件)
     public GameObject txt_count;    // 顯示計數的文字物件 (Puzzl-Medium場景中的計數文字)
 
+    // REMOVED: Start() 方法，避免自動調用 GameOpen() 造成問題
+    // void Start()
+    // {
+    //     // ...
+    // }
+
     public void GameOpen()    // 開始遊戲的方法
     {
         CompletionManager cm = FindObjectOfType<CompletionManager>();
         if (cm != null)
         {
+            Debug.Log($"Btn_M.cs GameOpen: Calling HideCompletionPanel. Frame: {Time.frameCount}");
             cm.HideCompletionPanel();
         }
         else
         {
-            Debug.LogWarning("Btn_M.cs (GameOpen): CompletionManager not found in scene.");
+            Debug.LogWarning($"Btn_M.cs GameOpen: CompletionManager not found in scene. Frame: {Time.frameCount}");
         }
 
-        if (wp == null) { Debug.LogError("Btn_M.cs: 'wp' (Puzzle Window Parent) is not assigned in the Inspector!"); return; }
-        if (txt_count == null) { Debug.LogError("Btn_M.cs: 'txt_count' (Count Text) is not assigned in the Inspector!"); return; }
+        if (wp == null)
+        {
+            Debug.LogError("Btn_M.cs: 'wp' (Puzzle Window Parent) is not assigned in the Inspector!");
+            return;
+        }
 
         wp.SetActive(true);
 
         // 中等模式 (3x4, 12塊) 的初始化邏輯
         Game_M.correct = 0;
         global.correct = 0; // 同步設定 global.correct 以便 CompletionManager 隱藏面板
+        Debug.Log($"Btn_M.cs GameOpen: Game_M.correct set to 0, global.correct set to 0. Frame: {Time.frameCount}");
         Game_M.count = 0;
-        if (txt_count != null && txt_count.GetComponent<Text>() != null)
+        global.lastMoveCount = 0; // 重置上一局的移動次數
+
+        // 改進的空值檢查
+        if (txt_count != null)
         {
-            txt_count.GetComponent<Text>().text = "0";
+            Text textComponent = txt_count.GetComponent<Text>();
+            if (textComponent != null)
+            {
+                textComponent.text = "0";
+            }
+            else
+            {
+                Debug.LogWarning("Btn_M.cs GameOpen: txt_count does not have a Text component!");
+            }
         }
         else
         {
-            Debug.LogError("Btn_M.cs: txt_count is null or does not have a Text component!");
+            Debug.LogWarning("Btn_M.cs GameOpen: txt_count is not assigned! Please assign it in the Inspector.");
         }
 
         // 初始化 Game_M.po 陣列 (3x4, 12塊) - 數字範圍 11-22，22為空格
@@ -101,8 +123,9 @@ public class Btn_M : MonoBehaviour // 類名更改
         }
         Game_M.correct = 1;
         global.correct = 1; // 同步設定 global.correct 以觸發 CompletionManager
+        global.lastMoveCount = Game_M.count; // 記錄本局移動次數
         // UI 更新將由 Game_M.cs 實例的 UpdateVisualState() 自動處理
-        Debug.Log("[Btn_M.cs] GameDone (Medium): Game_M.po set to solved state: " + string.Join(", ", Game_M.po) + "; global.correct set to 1");
+        Debug.Log("[Btn_M.cs] GameDone (Medium): Game_M.po set to solved state: " + string.Join(", ", Game_M.po) + "; global.correct set to 1; lastMoveCount set to " + global.lastMoveCount);
 
         // 由於 CompletionManager 會在 Update 中檢測 global.correct，以下尋找並調用 cm 的程式碼可以移除或保持註解
         /*
