@@ -211,3 +211,8 @@ This file tracks the project's current status, including recent changes, current
 *   排行榜資料的儲存方式 (本機儲存或伺服器？)。
 *   (Storage method for leaderboard data (local storage or server?).)
 [2025-05-28 19:41:00] - 解決了從 Scoring 場景返回遊戲時通關面板殘留的問題。問題原因是 Game.cs/Game_M.cs 的 Update() 方法會持續檢查拼圖狀態，當 global.po 陣列仍保持完成狀態時會將 global.correct 設回 1。通過在 Btn.cs 和 Btn_M.cs 添加 Start() 方法，在場景載入時自動檢測並重新開始遊戲來解決此問題。
+[2025-05-28 19:52:00] - 完成所有拼圖遊戲功能修復：
+- 解決了中等難度點擊 Done 按鈕的問題
+- 修復了從 Scoring 場景返回時完成面板殘留的問題
+- 實現了智能的遊戲狀態管理系統
+- 確保簡單和中等難度都能正常運作
