@@ -21,11 +21,11 @@ This file provides a high-level overview of the project and the expected product
     *   當拼圖完成正確順序時，被移除的拼圖會重新出現，完成遊戲。
     *   (When the puzzle is solved in the correct order, the removed tile reappears, completing the game.)
 *   **難度級別 (Difficulty Levels):**
-    *   提供簡單 (目前 3x3)、中等、困難等不同難度。
-    *   (Offer different difficulty levels: Easy (current 3x3), Medium, Hard.)
+    *   提供簡單 (3x3, 9塊)、中等 (3x4, 12塊)、困難等不同難度。
+    *   (Offer different difficulty levels: Easy (3x3, 9 tiles), Medium (3x4, 12 tiles), Hard.)
 *   **圖片自訂 (Image Customization):**
-    *   允許不同難度使用不同的預設圖片集。
-    *   (Allow different default image sets for different difficulties.)
+    *   允許不同難度使用不同的預設圖片集 (例如 Easy: 1-9.png, Medium: A1-A12.jpg)。
+    *   (Allow different default image sets for different difficulties (e.g., Easy: 1-9.png, Medium: A1-A12.jpg).)
     *   (未來可能擴展為玩家自選圖片。)
     *   ((Future extension could allow player-selected images.))
 *   **計分與計時 (Scoring and Timer):**
@@ -56,8 +56,8 @@ This file provides a high-level overview of the project and the expected product
     *   主選單場景 (MainMenuScene)
     *   輸入資料場景 (EnterDataScene)
     *   遊戲難度選擇場景 (DifficultySelectScene)
-    *   遊戲畫面場景 (GameScene_Easy, GameScene_Medium, GameScene_Hard - 根據難度可能需要不同場景或動態調整)
-    *   (Game Screen Scene (GameScene_Easy, GameScene_Medium, GameScene_Hard - may require different scenes or dynamic adjustments based on difficulty))
+    *   遊戲畫面場景 ([`Puzzl-Easy.unity`](Assets/Scenes/Puzzl-Easy.unity:1), [`Puzzl-Medium.unity`](Assets/Scenes/Puzzl-Medium.unity:1), Puzzl-Hard.unity - 根據難度可能需要不同場景或動態調整)
+    *   (Game Screen Scene ([`Puzzl-Easy.unity`](Assets/Scenes/Puzzl-Easy.unity:1), [`Puzzl-Medium.unity`](Assets/Scenes/Puzzl-Medium.unity:1), Puzzl-Hard.unity - may require different scenes or dynamic adjustments based on difficulty))
     *   結果頁面場景 (ResultScene)
     *   排行榜場景 (LeaderboardScene)
 *   **腳本結構 (Script Structure):**
@@ -67,3 +67,4 @@ This file provides a high-level overview of the project and the expected product
     *   (New scripts may be needed for scene transitions, data persistence (leaderboard, player name), timer logic, game board generation for different difficulties, etc.)
 *   UI 物件 (如 `wp`、`txt_count` 及新增的按鈕、輸入框等) 用於 Unity 介面操作。
 *   (UI objects (like `wp`, `txt_count`, and new buttons, input fields, etc.) are used for Unity interface manipulation.)
+*   [2025-05-27 14:34:00] - Medium difficulty defined as 3x4 (12 tiles).

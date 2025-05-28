@@ -7,8 +7,7 @@ public class Btn : MonoBehaviour
 {
     public GameObject wp;    // 遊戲視窗物件
     public GameObject txt_count;    // 顯示計數的文字物件
-    //int[] po = new int[9];
-    public GameObject[] img = new GameObject[9];    // 存儲九宮格圖片的陣列 (主要用於 GameOpen 中的隨機化邏輯參考)
+    // public GameObject[] img = new GameObject[9]; // 不再需要此陣列，因為拼圖塊數量是動態的
     // public Game gameController; // 不再需要此引用
     // public GameObject completionPanel; // REMOVED: 由 CompletionManager 處理
 
@@ -20,8 +19,6 @@ public class Btn : MonoBehaviour
 
     public void GameOpen()    // 開始遊戲的方法
     {
-        global.correct = 0; // 確保遊戲開始時不是完成狀態
-
         // 嘗試找到 CompletionManager 並隱藏其面板
         CompletionManager cm = FindObjectOfType<CompletionManager>();
         if (cm != null)
@@ -34,31 +31,38 @@ public class Btn : MonoBehaviour
         }
 
         wp.SetActive(true);    // 顯示遊戲視窗
-        global.count = 0;  // 重置計數器
-        txt_count.GetComponent<Text>().text = "0";  // 更新計數器顯示
-        global.po[0] = UnityEngine.Random.Range(1, 9);    // 隨機生成第一個數字
-        global.po[8] = 9;    // 最後一格設定為9（空白格） (假設9代表空格)
-        for (int i = 1; i < 8; i++)    // 生成其餘數字的迴圈
-        {
-            int repeat;
-            do    // 確保生成的數字不重複
-            {
-                repeat = 0;
-                global.po[i] = UnityEngine.Random.Range(1, 9);    // 隨機生成數字
-                for (int j = 0; j < i; j++)    // 檢查是否與之前生成的數字重複
-                    if (global.po[i] == global.po[j])
-                        repeat = 1;
-            } while (repeat == 1);
-        }
-        // 移除了直接設定 img[i].sprite 的程式碼
-        // for (int i = 0; i < 8; i++)
-        // {
-        //     // string file = global.po[i].ToString();
-        //     // img[i].GetComponent<Image>().sprite = Resources.Load<Sprite>(file); // 由 Game.cs 的 UpdateVisualState 處理
-        // }
-        // img[8].GetComponent<Image>().sprite = null; // 由 Game.cs 的 UpdateVisualState 處理
 
-        // 視覺更新將由每個 Game.cs 實例的 UpdateVisualState() 根據 global.po 和 global.correct 的新狀態自動處理。
+        // 恢復為僅處理 Easy 模式 (3x3) 的邏輯
+        global.correct = 0;
+        global.count = 0;
+        txt_count.GetComponent<Text>().text = "0";
+
+        // Easy 模式 (3x3, 9塊) 的初始化邏輯 - 使用 Fisher-Yates shuffle
+        List<int> numbersToShuffle = new List<int>();
+        for (int k = 1; k <= 8; k++) // 數字 1 到 8
+        {
+            numbersToShuffle.Add(k);
+        }
+
+        // 打亂 numbersToShuffle 列表
+        for (int k = 0; k < numbersToShuffle.Count - 1; k++)
+        {
+            int randomIndex = Random.Range(k, numbersToShuffle.Count);
+            int temp = numbersToShuffle[k];
+            numbersToShuffle[k] = numbersToShuffle[randomIndex];
+            numbersToShuffle[randomIndex] = temp;
+        }
+
+        // 將打亂後的數字填入 global.po
+        for (int k = 0; k < 8; k++) // 填入前8個位置
+        {
+            global.po[k] = numbersToShuffle[k];
+        }
+        global.po[8] = 9; // 第9個位置是空格
+
+        Debug.Log("[Btn.cs] GameOpen (Easy): global.po AFTER shuffle: " + string.Join(", ", global.po));
+
+        // 視覺更新將由 Game.cs 實例的 UpdateVisualState() 自動處理。
     }
 
     public void GameClose()    // 關閉遊戲的方法
@@ -68,20 +72,16 @@ public class Btn : MonoBehaviour
 
     public void GameDone()    // 一鍵完成拼圖的方法
     {
-        // 直接設定 global.po 為已解決的順序 (1 到 9)
+        // 恢復為僅處理 Easy 模式 (3x3) 的邏輯
         for (int i = 0; i < 9; i++)
         {
-            global.po[i] = i + 1;
+            global.po[i] = i + 1; // po[8] 會是 9 (空格)
         }
-
-        // 設定遊戲為完成狀態
         global.correct = 1;
-
-        // 注意：此處不修改 global.count，也不直接更新UI圖片。
-        // UI圖片的更新將依賴每個 Game.cs 實例在其 Update 方法中偵測到 global.po 和 global.correct 的變化。
+        // UI 更新由 Game.cs 處理
     }
 
-    // REMOVED: Update() 方法，因為 completionPanel 的顯示邏輯已移至 CompletionManager.cs
+    // REMOVED: Update() 方法
     // void Update()
     // {
     //     // ...

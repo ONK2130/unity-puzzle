@@ -39,3 +39,15 @@ It is optional, but recommended to be updated as the project evolves.
 *   (No specific testing patterns defined at the moment.)
 *   [2025-05-26 16:40:25] - 新增功能後，需要針對每個場景的互動、資料傳遞、計時準確性、排行榜更新等進行手動測試。
 *   (After adding new features, manual testing will be required for each scene's interaction, data passing, timer accuracy, leaderboard updates, etc.)
+*   [2025-05-27 10:53:18] - **單一職責原則 (SRP) 應用 - UI 管理器 (Single Responsibility Principle Application - UI Manager):**
+    *   引入 [`Assets/Scripts/CompletionManager.cs`](Assets/Scripts/CompletionManager.cs:1) 作為一個專門的管理器，負責處理遊戲完成提示面板 (`CompletionPanel`) 的顯示和隱藏邏輯。
+    *   (Introduced [`Assets/Scripts/CompletionManager.cs`](Assets/Scripts/CompletionManager.cs:1) as a dedicated manager responsible for handling the display and hiding logic of the game completion prompt panel (`CompletionPanel`).)
+    *   此模式將特定的 UI 控制邏輯從通用的按鈕事件處理腳本 ([`Assets/Scripts/Btn.cs`](Assets/Scripts/Btn.cs:1)) 中分離出來，使每個腳本的職責更單一，提高了程式碼的清晰度和可維護性。
+    *   (This pattern separates specific UI control logic from general button event handling scripts ([`Assets/Scripts/Btn.cs`](Assets/Scripts/Btn.cs:1)), making each script's responsibility more singular and improving code clarity and maintainability.)
+*   [2025-05-27 10:53:18] - **狀態驅動的遊戲邏輯 (State-Driven Game Logic):**
+    *   遊戲的核心狀態 (如 `global.correct`) 被用來驅動不同的遊戲行為和 UI 更新。
+    *   (Core game states (like `global.correct`) are used to drive different game behaviors and UI updates.)
+    *   例如，[`Assets/Scripts/CompletionManager.cs`](Assets/Scripts/CompletionManager.cs:1) 根據 `global.correct` 的值來決定是否顯示完成面板。
+    *   (For example, [`Assets/Scripts/CompletionManager.cs`](Assets/Scripts/CompletionManager.cs:1) decides whether to show the completion panel based on the value of `global.correct`.)
+    *   [`Assets/Scripts/Game.cs`](Assets/Scripts/Game.cs:1) 在 `global.correct == 1` 時禁止拼圖塊移動，並調整其 `UpdateVisualState` 的行為。
+    *   ([`Assets/Scripts/Game.cs`](Assets/Scripts/Game.cs:1) prevents puzzle piece movement when `global.correct == 1` and adjusts the behavior of its `UpdateVisualState`.)

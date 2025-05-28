@@ -40,7 +40,7 @@ public class Game : MonoBehaviour    // 遊戲主要邏輯控制類別
         // 如果 Btn.cs 中的 GameDone 已經設定了 global.correct = 1，這裡的計算可以作為驗證
         // 或者，如果希望 Game.cs 自身也能獨立判斷完成狀態，則保留此邏輯
         // 為了簡化，暫時假設 global.correct 由外部（如Btn.cs或點擊邏輯）正確設定
-        // global.correct = currentCorrect; // 如果需要 Game.cs 自行判斷，則取消註解此行
+        global.correct = currentCorrect; // 恢復此行，讓 Game.cs 自行判斷
 
         UpdateVisualState();
     }
@@ -61,7 +61,7 @@ public class Game : MonoBehaviour    // 遊戲主要邏輯控制類別
         }
         else // 遊戲進行中
         {
-            if (logicalTilePosition - 1 >= 0 && logicalTilePosition - 1 < global.po.Length)
+            if (logicalTilePosition - 1 >= 0 && logicalTilePosition - 1 < global.po.Length) // 使用 .Length 因為 global.po 將是 int[]
             {
                 int imageNumber = global.po[logicalTilePosition - 1];
                 // 假設在 global.po 中，數字 9 代表空格 (這是基於 Btn.cs 中 GameOpen 的初始化邏輯推斷的)
@@ -89,6 +89,8 @@ public class Game : MonoBehaviour    // 遊戲主要邏輯控制類別
     // 輔助方法：嘗試與指定的相鄰邏輯位置交換（如果相鄰位置是空格）
     private void TrySwapIfAdjacentIsSpace(int adjacentLogicalPos)
     {
+        if (global.correct == 1) return; // 遊戲完成後不允許移動
+
         // 檢查 logicalTilePosition 是否有效
         if (this.logicalTilePosition < 1 || this.logicalTilePosition > 9)
         {
@@ -107,7 +109,7 @@ public class Game : MonoBehaviour    // 遊戲主要邏輯控制類別
         int adjacentPoIndex = adjacentLogicalPos - 1;   // 相鄰塊在 global.po 中的索引
 
         // 再次檢查索引範圍，雖然 adjacentLogicalPos 已經檢查過，但多一層保護
-        if (currentPoIndex < 0 || currentPoIndex >= global.po.Length || adjacentPoIndex < 0 || adjacentPoIndex >= global.po.Length)
+        if (currentPoIndex < 0 || currentPoIndex >= global.po.Length || adjacentPoIndex < 0 || adjacentPoIndex >= global.po.Length) // 使用 .Length
         {
             Debug.LogError($"Index out of bounds. currentPoIndex: {currentPoIndex}, adjacentPoIndex: {adjacentPoIndex}");
             return;
