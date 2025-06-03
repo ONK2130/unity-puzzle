@@ -1,0 +1,127 @@
+Assets/Resources/Background.meta
+Assets/Resources/Background/DifficultySelect-background.png
+Assets/Resources/Background/DifficultySelect-background.png.meta
+Assets/Resources/Background/DifficultySelect-bread0.png
+Assets/Resources/Background/DifficultySelect-bread0.png.meta
+Assets/Resources/Background/DifficultySelect-bread1.png
+Assets/Resources/Background/DifficultySelect-bread1.png.meta
+Assets/Resources/Background/DifficultySelect-bread2.png
+Assets/Resources/Background/DifficultySelect-bread2.png.meta
+Assets/Resources/Background/DifficultySelect-bread3.jpg
+Assets/Resources/Background/DifficultySelect-bread3.jpg.meta
+Assets/Resources/Background/DifficultySelect-food0.png
+Assets/Resources/Background/DifficultySelect-food0.png.meta
+Assets/Resources/Background/DifficultySelect-food1.png
+Assets/Resources/Background/DifficultySelect-food1.png.meta
+Assets/Resources/Background/DifficultySelect-food2.png
+Assets/Resources/Background/DifficultySelect-food2.png.meta
+Assets/Resources/Background/DifficultySelect-food3.png
+Assets/Resources/Background/DifficultySelect-food3.png.meta
+Assets/Resources/Background/Main-background.png
+Assets/Resources/Background/Main-background.png.meta
+Assets/Resources/Background/Materials.meta
+Assets/Resources/Background/Materials/DifficultySelect-background.mat
+Assets/Resources/Background/Materials/DifficultySelect-background.mat.meta
+Assets/Resources/Background/Materials/Main-background.mat
+Assets/Resources/Background/Materials/Main-background.mat.meta
+Assets/Resources/Background/Materials/PlayerInput-background.mat
+Assets/Resources/Background/Materials/PlayerInput-background.mat.meta
+Assets/Resources/Background/Materials/Puzzl-Easy-background.mat
+Assets/Resources/Background/Materials/Puzzl-Easy-background.mat.meta
+Assets/Resources/Background/PlayerInput-background.png
+Assets/Resources/Background/PlayerInput-background.png.meta
+Assets/Resources/Background/Puzzl-Easy-background.png
+Assets/Resources/Background/Puzzl-Easy-background.png.meta
+Assets/Resources/Background/Scoring-Background.png
+Assets/Resources/Background/Scoring-Background.png.meta
+Assets/Resources/Background/waitdelete.png
+Assets/Resources/Background/waitdelete.png.meta
+Assets/Resources/TechnoGami.meta
+Assets/Resources/TechnoGami/2d UI button.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section01.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section01/BlankButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section01/BlankButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section01/ExitButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section01/ExitButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section01/OptionButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section01/OptionButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section01/SettingButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section01/SettingButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section01/StartButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section01/StartButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section02.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section02/BlankButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section02/BlankButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section02/ExitButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section02/ExitButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section02/OptionButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section02/OptionButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section02/SettingButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section02/SettingButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section02/StartButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section02/StartButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section03.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section03/BlankButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section03/BlankButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section03/ExitButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section03/ExitButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section03/OptionButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section03/OptionButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section03/SettingButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section03/SettingButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section03/StartButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section03/StartButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section04.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section04/BlankButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section04/BlankButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section04/ExitButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section04/ExitButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section04/OptionButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section04/OptionButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section04/SettingButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section04/SettingButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section04/StartButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section04/StartButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section05.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section05/BlankButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section05/BlankButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section05/ExitButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section05/ExitButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section05/OptionButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section05/OptionButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section05/SettingButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section05/SettingButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section05/StartButton.png
+Assets/Resources/TechnoGami/2d UI button/AllSection/Section05/StartButton.png.meta
+Assets/Resources/TechnoGami/2d UI button/ExmpleScene.meta
+Assets/Resources/TechnoGami/2d UI button/ExmpleScene/TechnoGami1.unity
+Assets/Resources/TechnoGami/2d UI button/ExmpleScene/TechnoGami1.unity.meta
+Assets/Resources/TechnoGami/2d UI button/ExmpleScene/TechnoGami2.unity
+Assets/Resources/TechnoGami/2d UI button/ExmpleScene/TechnoGami2.unity.meta
+Assets/Resources/TechnoGami/2d UI button/Prefabs.meta
+Assets/Resources/TechnoGami/2d UI button/Prefabs/section01.prefab
+Assets/Resources/TechnoGami/2d UI button/Prefabs/section01.prefab.meta
+Assets/Resources/TechnoGami/2d UI button/Prefabs/section02.prefab
+Assets/Resources/TechnoGami/2d UI button/Prefabs/section02.prefab.meta
+Assets/Resources/TechnoGami/2d UI button/Prefabs/section03.prefab
+Assets/Resources/TechnoGami/2d UI button/Prefabs/section03.prefab.meta
+Assets/Resources/TechnoGami/2d UI button/Prefabs/section04.prefab
+Assets/Resources/TechnoGami/2d UI button/Prefabs/section04.prefab.meta
+Assets/Resources/TechnoGami/2d UI button/Prefabs/section05.prefab
+Assets/Resources/TechnoGami/2d UI button/Prefabs/section05.prefab.meta
+Assets/Resources/Thaleah_PixelFont.meta
+Assets/Resources/Thaleah_PixelFont/Materials.meta
+Assets/Resources/Thaleah_PixelFont/Materials/ThaleahFat.mat
+Assets/Resources/Thaleah_PixelFont/Materials/ThaleahFat.mat.meta
+Assets/Resources/Thaleah_PixelFont/Materials/ThaleahFat.png
+Assets/Resources/Thaleah_PixelFont/Materials/ThaleahFat.png.meta
+Assets/Resources/Thaleah_PixelFont/Materials/ThaleahFat_TTF.ttf
+Assets/Resources/Thaleah_PixelFont/Materials/ThaleahFat_TTF.ttf.meta
+Assets/Resources/Thaleah_PixelFont/Materials/Thaleah_DemoBackground.png
+Assets/Resources/Thaleah_PixelFont/Materials/Thaleah_DemoBackground.png.meta
+Assets/Resources/Thaleah_PixelFont/ThaleahFat.fontsettings
+Assets/Resources/Thaleah_PixelFont/ThaleahFat.fontsettings.meta
+Assets/Resources/Thaleah_PixelFont/Thaleah_Demo.unity
+Assets/Resources/Thaleah_PixelFont/Thaleah_Demo.unity.meta
+Assets/Resources/Thaleah_PixelFont/Thaleah_Readme.pdf.meta
