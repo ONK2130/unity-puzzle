@@ -1,12 +1,14 @@
 # 🧩 Unity 拼圖遊戲專案
 
 <div align="center">
-  
-  [![Unity](https://img.shields.io/badge/Unity-2021.3+-black?style=for-the-badge&logo=unity)](https://unity.com/)
-  [![License](https://img.shields.io/badge/License-Educational-blue?style=for-the-badge)](LICENSE)
-  [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS-green?style=for-the-badge)](https://github.com/ONK2130/unity-puzzle)
-  
+
+[![Unity](https://img.shields.io/badge/Unity-2021.3+-black?style=for-the-badge&logo=unity)](https://unity.com/)
+[![License](https://img.shields.io/badge/License-Educational-blue?style=for-the-badge)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS-green?style=for-the-badge)](https://github.com/ONK2130/unity-puzzle)
+
 </div>
+
+## test github user.name email
 
 ## 📖 專案簡介
 
@@ -65,42 +67,49 @@ Class_20250319/
 ## 🎮 遊戲流程
 
 ### 1️⃣ 玩家輸入 (`Player-input.unity`)
+
 - 玩家輸入姓名
 - 點擊「開始遊戲」進入難度選擇
 
 ### 2️⃣ 難度選擇 (`DifficultySelect.unity`)
+
 - 選擇簡單模式（3x3 拼圖）
 - 選擇中等模式（3x4 拼圖）
 
 ### 3️⃣ 遊戲進行 (`Puzzl-Easy.unity` / `Puzzl-Medium.unity`)
+
 - 點擊「開始遊戲」打亂拼圖
 - 點擊拼圖塊進行移動
 - 完成拼圖後自動顯示完成面板
 - 可使用「Done」按鈕快速完成（測試用）
 
 ### 4️⃣ 遊戲結算 (`Scoring.unity`)
+
 - 顯示玩家姓名、移動步數、遊戲難度
 - 可選擇「再來一局」、「選擇難度」或「返回主選單」
 
 ## 🔧 核心系統
 
 ### 📌 全域狀態管理 (`global.cs`)
-| 變數 | 說明 |
-|------|------|
-| `po[]` | 簡單模式拼圖陣列（1-9，9為空格） |
-| `correct` | 遊戲完成狀態（0=未完成，1=已完成） |
-| `count` | 當前移動步數 |
-| `lastMoveCount` | 上一局的移動步數 |
-| `lastDifficulty` | 上一局的難度 |
+
+| 變數             | 說明                               |
+| ---------------- | ---------------------------------- |
+| `po[]`           | 簡單模式拼圖陣列（1-9，9 為空格）  |
+| `correct`        | 遊戲完成狀態（0=未完成，1=已完成） |
+| `count`          | 當前移動步數                       |
+| `lastMoveCount`  | 上一局的移動步數                   |
+| `lastDifficulty` | 上一局的難度                       |
 
 ### 📌 中等模式狀態 (`Game_M.cs`)
-| 變數 | 說明 |
-|------|------|
-| `po[]` | 中等模式拼圖陣列（11-22，22為空格） |
-| `correct` | 中等模式完成狀態 |
-| `count` | 中等模式移動步數 |
+
+| 變數      | 說明                                 |
+| --------- | ------------------------------------ |
+| `po[]`    | 中等模式拼圖陣列（11-22，22 為空格） |
+| `correct` | 中等模式完成狀態                     |
+| `count`   | 中等模式移動步數                     |
 
 ### 📌 完成管理系統 (`CompletionManager.cs`)
+
 - ✅ 統一管理遊戲完成面板的顯示/隱藏
 - ✅ 智能檢測拼圖完成狀態
 - ✅ 處理場景切換時的狀態同步
@@ -108,11 +117,13 @@ Class_20250319/
 ## 💡 開發特色
 
 ### 🏗️ 架構設計
+
 - **模組化設計**：簡單和中等模式使用獨立的腳本，便於擴展
 - **狀態同步**：使用全域變數確保場景間的狀態一致性
 - **智能狀態管理**：自動處理場景切換時的狀態重置
 
 ### 📝 開發管理
+
 - **Memory Bank**：完整記錄開發決策和進度
 - **版本控制**：使用 Git 進行版本管理
 - **文檔完善**：詳細的程式碼註解和文檔
@@ -120,11 +131,13 @@ Class_20250319/
 ## 🚀 快速開始
 
 ### 系統需求
+
 - Unity 2021.3 或更高版本
 - 支援 2D 遊戲開發
 - Windows 或 macOS 作業系統
 
 ### 安裝步驟
+
 1. 克隆專案到本地
    ```bash
    git clone https://github.com/ONK2130/unity-puzzle.git
@@ -136,15 +149,18 @@ Class_20250319/
 ## 📊 技術細節
 
 ### 場景管理
+
 - 使用 `SceneManager.LoadScene()` 進行場景切換
 - 透過 `global.cs` 保持場景間的資料傳遞
 
 ### 拼圖邏輯
+
 - Fisher-Yates 演算法實現拼圖打亂
 - 檢查相鄰空格實現拼圖移動
 - 即時檢測拼圖完成狀態
 
 ### UI 系統
+
 - 使用 Unity UI 系統建立介面
 - 動態更新移動步數顯示
 - 彈窗系統顯示遊戲完成
@@ -160,7 +176,7 @@ Class_20250319/
 ---
 
 <div align="center">
-  
-  **Made with ❤️ using Unity**
-  
+
+**Made with ❤️ using Unity**
+
 </div>
