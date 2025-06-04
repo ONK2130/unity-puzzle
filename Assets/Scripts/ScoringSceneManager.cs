@@ -1,54 +1,130 @@
 using UnityEngine;
-using UnityEngine.UI; // 如果使用標準 UI Text
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 // using TMPro; // 如果使用 TextMeshPro，取消註解此行並替換 Text 為 TextMeshProUGUI
 
 public class ScoringSceneManager : MonoBehaviour
 {
-    // 在 Inspector 中指派這些 UI Text 元件
-    public Text playerNameText;    // 用於顯示玩家姓名的 Text UI
-    public Text moveCountText;     // 用於顯示移動步數的 Text UI
-    public Text difficultyText;    // 用於顯示難度的 Text UI
+    // 簡單難度的UI元素
+    [Header("簡單難度UI")]
+    public Text easyDifficultyText;        // 簡單難度的難度文字
+    public Text easyPlayerNameText;        // 簡單難度的玩家名稱文字
+    public Text easyMoveCountText;         // 簡單難度的移動步數文字
 
-    // 如果使用 TextMeshPro，請將上面的 Text 替換為 TextMeshProUGUI，例如：
-    // public TextMeshProUGUI playerNameText;
-    // public TextMeshProUGUI moveCountText;
-    // public TextMeshProUGUI difficultyText;
+    // 中等難度的UI元素
+    [Header("中等難度UI")]
+    public Text mediumDifficultyText;      // 中等難度的難度文字
+    public Text mediumPlayerNameText;      // 中等難度的玩家名稱文字
+    public Text mediumMoveCountText;       // 中等難度的移動步數文字
+
+    // 困難難度的UI元素
+    [Header("困難難度UI")]
+    public Text hardDifficultyText;        // 困難難度的難度文字
+    public Text hardPlayerNameText;        // 困難難度的玩家名稱文字
+    public Text hardMoveCountText;         // 困難難度的移動步數文字
 
     void Start()
     {
-        // 讀取並顯示玩家姓名
-        if (playerNameText != null)
-        {
-            playerNameText.text = PlayerPrefs.GetString("PlayerName", "玩家");
-        }
-        else
-        {
-            Debug.LogError("ScoringSceneManager: playerNameText is not assigned in the Inspector!");
-        }
+        // 更新最近一次遊戲的紀錄
+        UpdateLastGameRecord();
 
-        // 讀取並顯示移動步數
-        if (moveCountText != null)
-        {
-            moveCountText.text = global.lastMoveCount.ToString();
-        }
-        else
-        {
-            Debug.LogError("ScoringSceneManager: moveCountText is not assigned in the Inspector!");
-        }
+        // 顯示各難度的遊戲紀錄
+        DisplayEasyRecord();
+        DisplayMediumRecord();
+        DisplayHardRecord();
+    }
 
-        // 讀取並顯示難度
-        if (difficultyText != null)
+    // 根據最近一次遊戲的難度更新相應的紀錄
+    private void UpdateLastGameRecord()
+    {
+        string playerName = PlayerPrefs.GetString("PlayerName", "玩家");
+
+        if (!string.IsNullOrEmpty(global.lastDifficulty))
         {
-            difficultyText.text = global.lastDifficulty;
-            if (string.IsNullOrEmpty(global.lastDifficulty))
+            if (global.lastDifficulty == "簡單")
             {
-                difficultyText.text = "未知"; // 如果沒有記錄難度，顯示未知
+                global.hasPlayedEasy = true;
+                global.easyPlayerName = playerName;
+                global.easyMoveCount = global.lastMoveCount;
+            }
+            else if (global.lastDifficulty == "中等")
+            {
+                global.hasPlayedMedium = true;
+                global.mediumPlayerName = playerName;
+                global.mediumMoveCount = global.lastMoveCount;
+            }
+            else if (global.lastDifficulty == "困難")
+            {
+                global.hasPlayedHard = true;
+                global.hardPlayerName = playerName;
+                global.hardMoveCount = global.lastMoveCount;
             }
         }
-        else
+    }
+
+    // 顯示簡單難度的遊戲紀錄
+    private void DisplayEasyRecord()
+    {
+        if (easyDifficultyText != null)
         {
-            Debug.LogError("ScoringSceneManager: difficultyText is not assigned in the Inspector!");
+            easyDifficultyText.gameObject.SetActive(global.hasPlayedEasy);
+            if (global.hasPlayedEasy) easyDifficultyText.text = "簡單";
+        }
+
+        if (easyPlayerNameText != null)
+        {
+            easyPlayerNameText.gameObject.SetActive(global.hasPlayedEasy);
+            if (global.hasPlayedEasy) easyPlayerNameText.text = global.easyPlayerName;
+        }
+
+        if (easyMoveCountText != null)
+        {
+            easyMoveCountText.gameObject.SetActive(global.hasPlayedEasy);
+            if (global.hasPlayedEasy) easyMoveCountText.text = global.easyMoveCount.ToString();
+        }
+    }
+
+    // 顯示中等難度的遊戲紀錄
+    private void DisplayMediumRecord()
+    {
+        if (mediumDifficultyText != null)
+        {
+            mediumDifficultyText.gameObject.SetActive(global.hasPlayedMedium);
+            if (global.hasPlayedMedium) mediumDifficultyText.text = "中等";
+        }
+
+        if (mediumPlayerNameText != null)
+        {
+            mediumPlayerNameText.gameObject.SetActive(global.hasPlayedMedium);
+            if (global.hasPlayedMedium) mediumPlayerNameText.text = global.mediumPlayerName;
+        }
+
+        if (mediumMoveCountText != null)
+        {
+            mediumMoveCountText.gameObject.SetActive(global.hasPlayedMedium);
+            if (global.hasPlayedMedium) mediumMoveCountText.text = global.mediumMoveCount.ToString();
+        }
+    }
+
+    // 顯示困難難度的遊戲紀錄
+    private void DisplayHardRecord()
+    {
+        if (hardDifficultyText != null)
+        {
+            hardDifficultyText.gameObject.SetActive(global.hasPlayedHard);
+            if (global.hasPlayedHard) hardDifficultyText.text = "困難";
+        }
+
+        if (hardPlayerNameText != null)
+        {
+            hardPlayerNameText.gameObject.SetActive(global.hasPlayedHard);
+            if (global.hasPlayedHard) hardPlayerNameText.text = global.hardPlayerName;
+        }
+
+        if (hardMoveCountText != null)
+        {
+            hardMoveCountText.gameObject.SetActive(global.hasPlayedHard);
+            if (global.hasPlayedHard) hardMoveCountText.text = global.hardMoveCount.ToString();
         }
     }
 
@@ -94,10 +170,10 @@ public class ScoringSceneManager : MonoBehaviour
             {
                 SceneManager.LoadScene("Puzzl-Medium");
             }
-            // else if (global.lastDifficulty == "困難") // 未來擴展
-            // {
-            //     SceneManager.LoadScene("Puzzl-Hard");
-            // }
+            else if (global.lastDifficulty == "困難")
+            {
+                SceneManager.LoadScene("Puzzl-Hard");
+            }
             else
             {
                 Debug.LogWarning("ScoringSceneManager: Unknown lastDifficulty to replay: " + global.lastDifficulty + ". Returning to DifficultySelect.");
@@ -132,6 +208,16 @@ public class ScoringSceneManager : MonoBehaviour
             }
         }
 
-        Debug.Log($"ScoringSceneManager: ResetPuzzleState - Easy po[0]={global.po[0]}, Medium po[0]={(Game_M.po != null && Game_M.po.Length > 0 ? Game_M.po[0].ToString() : "null")}");
+        // 重置 Hard 模式的拼圖狀態
+        if (Game_H.po != null && Game_H.po.Length >= 15)
+        {
+            Game_H.po[0] = 46; // 將空格放在第一個位置
+            for (int i = 1; i < 15; i++)
+            {
+                Game_H.po[i] = i + 30; // 其他按順序排列
+            }
+        }
+
+        Debug.Log($"ScoringSceneManager: ResetPuzzleState - Easy po[0]={global.po[0]}, Medium po[0]={(Game_M.po != null && Game_M.po.Length > 0 ? Game_M.po[0].ToString() : "null")}, Hard po[0]={(Game_H.po != null && Game_H.po.Length > 0 ? Game_H.po[0].ToString() : "null")}");
     }
 }

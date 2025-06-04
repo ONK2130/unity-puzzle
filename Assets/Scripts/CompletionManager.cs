@@ -74,6 +74,23 @@ public class CompletionManager : MonoBehaviour
             }
             return true;
         }
+        else if (currentScene == "Puzzl-Hard")
+        {
+            // Hard 模式：檢查 Game_H.po
+            if (Game_H.po == null || Game_H.po.Length != 15)
+            {
+                return false;
+            }
+
+            for (int i = 0; i < 15; i++)
+            {
+                if (Game_H.po[i] != i + 31)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
 
         return false;
     }

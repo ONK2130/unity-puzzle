@@ -13,6 +13,22 @@ public static class global    // 全域靜態類別，用於存儲遊戲中的�
     public static int lastMoveCount;      // 儲存上一局遊戲的移動步數
     public static string lastDifficulty;  // 儲存上一局遊戲的難度 ("簡單", "中等", "困難")
 
+    // 每個難度的遊戲紀錄
+    // 簡單難度
+    public static bool hasPlayedEasy = false;    // 是否玩過簡單難度
+    public static string easyPlayerName = "";    // 簡單難度的玩家名稱
+    public static int easyMoveCount = 0;         // 簡單難度的移動步數
+
+    // 中等難度
+    public static bool hasPlayedMedium = false;  // 是否玩過中等難度
+    public static string mediumPlayerName = "";  // 中等難度的玩家名稱
+    public static int mediumMoveCount = 0;       // 中等難度的移動步數
+
+    // 困難難度
+    public static bool hasPlayedHard = false;    // 是否玩過困難難度
+    public static string hardPlayerName = "";    // 困難難度的玩家名稱
+    public static int hardMoveCount = 0;         // 困難難度的移動步數
+
     // 移除或保持註解之前為通用化或中等難度添加的變數
     // public static List<int> po_medium = new List<int>();
     // public static int count_medium;

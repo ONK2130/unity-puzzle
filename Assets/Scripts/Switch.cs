@@ -58,10 +58,10 @@ public class Switch : MonoBehaviour
 
     public void LoadHardGame()
     {
-        // PlayerPrefs.SetString("SelectedDifficulty", "Hard");
-        // PlayerPrefs.Save();
-        // SceneManager.LoadScene("Puzzl-Hard"); // 暫時不載入困難難度場景
-        Debug.LogWarning("Hard difficulty is not yet implemented in this version.");
+        PlayerPrefs.SetString("SelectedDifficulty", "Hard");
+        PlayerPrefs.Save();
+        global.lastDifficulty = "困難"; // 設定全域難度記錄
+        SceneManager.LoadScene("Puzzl-Hard");
     }
 
     // 返回玩家輸入場景的方法
