@@ -39,7 +39,7 @@ Class_20250319/
 │   │   ├── Puzzl-Medium.unity      # 中等模式遊戲場景 (3x4)
 │   │   ├── Puzzl-Hard.unity        # 困難模式遊戲場景 (3x5)
 │   │   ├── Scoring.unity           # 遊戲結算場景
-│   │   └── Info.unity              # 遊戲資訊場景
+│   │   └── Info.unity              # 遊戲說明頁面
 │   └── Scripts/                     # 遊戲腳本
 │       ├── global.cs               # 全域變數管理（遊戲狀態、拼圖陣列等）
 │       ├── Switch.cs               # 場景切換控制器
