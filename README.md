@@ -8,7 +8,6 @@
 
 </div>
 
-## test github user.name email
 
 ## 📖 專案簡介
 
