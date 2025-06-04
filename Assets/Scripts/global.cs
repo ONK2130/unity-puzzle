@@ -11,7 +11,7 @@ public static class global    // 全域靜態類別，用於存儲遊戲中的�
 
     // 用於結算畫面的變數
     public static int lastMoveCount;      // 儲存上一局遊戲的移動步數
-    public static string lastDifficulty;  // 儲存上一局遊戲的難度 ("簡單", "中等", "困難")
+    public static string lastDifficulty;  // 儲存上一局遊戲的難度 ("Easy", "Medium", "Hard")
 
     // 每個難度的遊戲紀錄
     // 簡單難度

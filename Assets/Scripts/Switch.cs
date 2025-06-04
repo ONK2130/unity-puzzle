@@ -43,7 +43,7 @@ public class Switch : MonoBehaviour
         // Easy 模式不需要特別的全域設定，其狀態由 Game.cs 和 Btn.cs 內部處理
         PlayerPrefs.SetString("SelectedDifficulty", "Easy");
         PlayerPrefs.Save();
-        global.lastDifficulty = "簡單"; // 設定全域難度記錄
+        global.lastDifficulty = "Easy"; // 設定全域難度記錄
         SceneManager.LoadScene("Puzzl-Easy");
     }
 
@@ -52,7 +52,7 @@ public class Switch : MonoBehaviour
         // 當載入 Puzzl-Medium 場景後，該場景內的 Btn_Medium.GameOpen() 應被調用以初始化 Game_Medium 的狀態
         PlayerPrefs.SetString("SelectedDifficulty", "Medium");
         PlayerPrefs.Save();
-        global.lastDifficulty = "中等"; // 設定全域難度記錄
+        global.lastDifficulty = "Medium"; // 設定全域難度記錄
         SceneManager.LoadScene("Puzzl-Medium");
     }
 
@@ -60,7 +60,7 @@ public class Switch : MonoBehaviour
     {
         PlayerPrefs.SetString("SelectedDifficulty", "Hard");
         PlayerPrefs.Save();
-        global.lastDifficulty = "困難"; // 設定全域難度記錄
+        global.lastDifficulty = "Hard"; // 設定全域難度記錄
         SceneManager.LoadScene("Puzzl-Hard");
     }
 

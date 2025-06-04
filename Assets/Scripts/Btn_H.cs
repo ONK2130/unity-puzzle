@@ -36,7 +36,7 @@ public class Btn_H : MonoBehaviour // 困難難度的按鈕邏輯控制類別
         Debug.Log($"Btn_H.cs GameOpen: Game_H.correct set to 0, global.correct set to 0. Frame: {Time.frameCount}");
         Game_H.count = 0;
         global.lastMoveCount = 0; // 重置上一局的移動次數
-        global.lastDifficulty = "困難"; // 設定當前難度為困難
+        global.lastDifficulty = "Hard"; // 設定當前難度為困難
 
         // 改進的空值檢查
         if (txt_count != null)

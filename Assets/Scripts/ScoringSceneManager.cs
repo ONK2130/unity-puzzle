@@ -37,23 +37,23 @@ public class ScoringSceneManager : MonoBehaviour
     // 根據最近一次遊戲的難度更新相應的紀錄
     private void UpdateLastGameRecord()
     {
-        string playerName = PlayerPrefs.GetString("PlayerName", "玩家");
+        string playerName = PlayerPrefs.GetString("PlayerName", "Player");
 
         if (!string.IsNullOrEmpty(global.lastDifficulty))
         {
-            if (global.lastDifficulty == "簡單")
+            if (global.lastDifficulty == "Easy")
             {
                 global.hasPlayedEasy = true;
                 global.easyPlayerName = playerName;
                 global.easyMoveCount = global.lastMoveCount;
             }
-            else if (global.lastDifficulty == "中等")
+            else if (global.lastDifficulty == "Medium")
             {
                 global.hasPlayedMedium = true;
                 global.mediumPlayerName = playerName;
                 global.mediumMoveCount = global.lastMoveCount;
             }
-            else if (global.lastDifficulty == "困難")
+            else if (global.lastDifficulty == "Hard")
             {
                 global.hasPlayedHard = true;
                 global.hardPlayerName = playerName;
@@ -68,7 +68,7 @@ public class ScoringSceneManager : MonoBehaviour
         if (easyDifficultyText != null)
         {
             easyDifficultyText.gameObject.SetActive(global.hasPlayedEasy);
-            if (global.hasPlayedEasy) easyDifficultyText.text = "簡單";
+            if (global.hasPlayedEasy) easyDifficultyText.text = "Easy";
         }
 
         if (easyPlayerNameText != null)
@@ -90,7 +90,7 @@ public class ScoringSceneManager : MonoBehaviour
         if (mediumDifficultyText != null)
         {
             mediumDifficultyText.gameObject.SetActive(global.hasPlayedMedium);
-            if (global.hasPlayedMedium) mediumDifficultyText.text = "中等";
+            if (global.hasPlayedMedium) mediumDifficultyText.text = "Medium";
         }
 
         if (mediumPlayerNameText != null)
@@ -112,7 +112,7 @@ public class ScoringSceneManager : MonoBehaviour
         if (hardDifficultyText != null)
         {
             hardDifficultyText.gameObject.SetActive(global.hasPlayedHard);
-            if (global.hasPlayedHard) hardDifficultyText.text = "困難";
+            if (global.hasPlayedHard) hardDifficultyText.text = "Hard";
         }
 
         if (hardPlayerNameText != null)
@@ -162,15 +162,15 @@ public class ScoringSceneManager : MonoBehaviour
         Debug.Log($"ScoringSceneManager: ReplaySameDifficulty called. global.correct set to {global.correct}. Puzzle state reset. Frame: {Time.frameCount}");
         if (!string.IsNullOrEmpty(global.lastDifficulty))
         {
-            if (global.lastDifficulty == "簡單")
+            if (global.lastDifficulty == "Easy")
             {
                 SceneManager.LoadScene("Puzzl-Easy");
             }
-            else if (global.lastDifficulty == "中等")
+            else if (global.lastDifficulty == "Medium")
             {
                 SceneManager.LoadScene("Puzzl-Medium");
             }
-            else if (global.lastDifficulty == "困難")
+            else if (global.lastDifficulty == "Hard")
             {
                 SceneManager.LoadScene("Puzzl-Hard");
             }
