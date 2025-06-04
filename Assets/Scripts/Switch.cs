@@ -75,11 +75,22 @@ public class Switch : MonoBehaviour
         SceneManager.LoadScene("Scoring");
     }
 
+    public void ExitMain()
+    {
+        SceneManager.LoadScene("Main");
+    }
 
-
-    // 您可以在此處添加一個靜態方法，用於在遊戲的其他地方讀取已儲存的姓名
-    // 例如：public static string GetSavedPlayerName()
-    // {
-    //     return PlayerPrefs.GetString("PlayerName", "Player"); // 如果沒有儲存姓名，則返回預設值 "Player"
-    // }
+    public void Info()
+    {
+        SceneManager.LoadScene("Info");
+    }
 }
+
+
+
+// 您可以在此處添加一個靜態方法，用於在遊戲的其他地方讀取已儲存的姓名
+// 例如：public static string GetSavedPlayerName()
+// {
+//     return PlayerPrefs.GetString("PlayerName", "Player"); // 如果沒有儲存姓名，則返回預設值 "Player"
+// }
+
